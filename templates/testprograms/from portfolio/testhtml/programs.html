@@ -1,0 +1,34 @@
+{% extends 'portfolio/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block title %}Programs-00{% endblock %}
+{% block body_block %}
+	<div>
+		Programming Languages Tutorial:<br/>
+		Python Tutorials that i have done
+		<span>
+			<ul>
+				(each would have its own page)
+				<li>pythonlearn --> redirects to pythonlearn programming entry
+				</li>
+				<li>pythongoogle</li>
+				<li>learnpythonthehardway</li>
+			</ul>
+		</span>
+		JavaScript Tutorials that i have done
+		<span>
+			<ul>
+				(each would have its own page)
+				<li>MDV: Javascript</li>
+			</ul>
+		</span>
+		<br/>
+		each programming Entry should have:<br/>
+		- The Topic<br/>
+		  (The Problem/Exercise and Solution can be put into one models.TextField())<br/>
+		- The Problem/Exercise</br>
+		- The Solution
+
+		user prettify to enter code field
+	</div>
+{% endblock %}

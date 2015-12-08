@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<div class="row">
+  {% for object in webtheme_list %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail" style="background-image: url({% static 'portfolio/images/premium-bg.png' %})">
+        <a href="{% url 'webtheme_detail' slug=object.slug %}" >
+          <!-- me issue dito regarding sa img src, inalalagyang ko ng "/" para ma load -->
+        <img src="/{{ object.theme_image }}" alt="...">
+        </a>
+        <div class="caption">
+          <h3 class="text-center">{{ object.theme_name }}</h3>
+          <p class="text-center">{{ object.theme_desc_short }}</p>
+          <p class="text-center"><a href="#" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Download</a></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

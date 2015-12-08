@@ -1,0 +1,12 @@
+{% extends "testprograms/index.html" %}
+{% load django_markdown %}
+{% block body_block %}
+
+	<!-- must display a list of "python/javascript" category tutorials -->
+	{% for object in object_list %}
+		<!-- {# object.title #} -->
+		{% if object.category == '' %}
+
+	{% endfor %}
+
+{% endblock %}

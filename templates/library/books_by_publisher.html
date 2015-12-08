@@ -1,0 +1,7 @@
+{% extends "library/base.html" %}
+{% block content %}
+	<h2>im here</h2>
+	{% for object in by_publisher %}
+		{{ object.title }}
+	{% endfor %}
+{% endblock %}

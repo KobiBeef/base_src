@@ -1,0 +1,50 @@
+{% load django_markdown %}
+{% load staticfiles %}
+<div class="entry_detail">
+	{% for object in entry_detail %}
+		testsprogram
+		<h2><a href="{% url 'testprogram_entry_detail' category=object.category.name slug=object.slug %}">{{ object.title }}</a></h2>
+		<p class="meta">
+			{{ object.created }}
+			Tagged under {{ object.tags.all|join:", " }}
+			<br />
+			Created by: {{ object.user }}
+		</p>
+		{{ object.body|markdown }}
+	{% endfor %}
+	<hr />
+</div>
+<h3>Comments</h3>
+<div class="comment_detail">
+	{% for object in comment_detail %}
+		Name: {{ object.name }} | Created: {{ object.created }}<br />
+		Email: {{ object.email }}<br />
+		Message: <br />
+		{{ object.body|linebreaks }}
+		<hr />
+	{% endfor %}
+</div>
+<h3>Comment Form</h3>
+<form method="POST" action="">{% csrf_token %}
+	{% for field in form %}
+			{% if field.name == 'name' %}
+				<div class="form-group">
+					<label class="control-label" for="{{ field.name }}">{{ field.label }}</label>
+					<input class="form-control" id="{{ field.name }}" name="{{ field.name }}" type="text" placeholder="Field required">
+				</div>
+			{% endif %}
+			{% if field.name == 'email' %}
+				<div class="form-group">
+					<label class="control-label" for="{{ field.name }}">{{ field.label }}</label>
+					<input class="form-control" id="{{ field.name }}" name="{{ field.name }}" type="text" placeholder="Field required">
+				</div>
+			{% endif %}
+			{% if field.name == 'body' %}
+				<div class="form-group">
+					<label for="{{ field.name }}">{{ field.label }}</label>
+					<textarea class="form-control" id="{{ field.name }}" name="{{ field.name }}" type="text" rows="5" placeholder="Field required"></textarea>
+				</div>
+			{% endif %}
+	{% endfor %}
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>

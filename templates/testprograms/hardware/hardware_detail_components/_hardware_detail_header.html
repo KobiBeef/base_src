@@ -1,0 +1,10 @@
+{% load staticfiles %}
+<header class="hardware-list-header" style="background-image: url({% static 'testprograms/images/diagmonds.png' %});">
+	{% for objects in entry_detail %}
+		<div class="container">
+			<h1><a href="#">{{ objects.hardware_post_title }}</a></h1>
+			<h6>Created: {{ objects.hardware_post_created }}</h6>
+			<h6>Created by: {{ objects.hardware_post_creator }}</h6>
+		</div>
+	{% endfor %}
+</header>

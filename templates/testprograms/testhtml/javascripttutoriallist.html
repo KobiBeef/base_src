@@ -1,0 +1,15 @@
+{% extends "testprograms/index.html" %}
+{% load django_markdown %}
+{% block body_block %}
+
+	{% for object in object_list %}
+		{% if object.category.name == "javascript" %}
+
+			<!-- TRYING DOUBLE URL ENTRY -->
+			<a href="{% url 'test_entry_detail' category=object.category.name slug=object.slug %}">{{ object.title }}</a><br />
+
+			<!-- <a href="{# url 'test_entry_detail' slug=object.slug #}">{# object.title #}</a> -->
+		{% endif %}
+	{% endfor %}
+
+{% endblock %}

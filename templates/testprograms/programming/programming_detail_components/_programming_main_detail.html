@@ -1,0 +1,8 @@
+{% load staticfiles %}
+{% load django_markdown %}
+{% for object in ProgramTutorialDetail_body %}
+	<div class="panel panel-default custom-outer-panel-shadow-box">
+		<div class="panel-heading" style="background-image: url({% static 'testprograms/images/hexellence.png' %});" id="{{ object.tutorial_topic }}"><h4>{{ object.tutorial_topic }}</h4></div>
+		<div class="panel-body">{{ object.tutorial_body|markdown }}</div>
+	</div>
+{% endfor %}

@@ -1,0 +1,31 @@
+{% extends 'testprograms/__base.html' %}
+{% load staticfiles %}
+{% block content %}
+	{% block header %}{% endblock %}
+	<!-- <header>
+		<div class="container">
+			{# block header #}{# endblock #}
+		</div>
+	</header> -->
+	<!-- <div class="container">
+		<ol class="breadcrumb">
+			{# block breadcrumb #}{# endblock #}
+		</ol>
+	</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				{% block main_col %}{% endblock %}
+			</div>
+			<div class="col-md-5">
+				{% block side_bar %}{% endblock %}
+			</div>
+		</div>
+	</div>
+	<footer>
+	<div class="container">
+		{% include "testprograms/_base_footer.html" %}
+		<!-- {# block footer %}{% endblock #} -->
+	</div>
+</footer>
+{% endblock %}

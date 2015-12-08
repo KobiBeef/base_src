@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		
+		<div class="navbar-header">
+			 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+      		</button>
+			<a class="navbar-brand" href="/testprograms/">Prototype 01</a>
+		</div><!-- /navbar-header -->
+
+		<div class="collapse navbar-collapse">
+      		<ul class="nav navbar-nav navbar-right">
+      			<li><a href="{% url 'entry_list' %}">Entry</a></li>
+				<li><a href="{% url 'programming_list' %}">Programming</a></li>
+				<li><a href="{% url 'testprograms_webtheme_list' %}">Interwebs</a></li>
+				<li><a href="{% url 'testprograms_multimedia_list' %}">MultiMedia</a></li>
+				<li><a href="{% url 'testprograms_hardwarepost_list' %}">Hardware</a></li>
+				<!-- just a project view for contact will eventually remove due to security reasons -->
+				<li><a href="{% url 'testprograms_about' %}">About</a></li>
+				<li><a href="{% url 'testprograms_contact' %}">Contact</a></li>
+			</ul>
+		</div><!-- /navbar-collpase -->
+	</div><!-- /container -->
+</nav><!-- /navbar -->

@@ -1,0 +1,11 @@
+{% load staticfiles %}
+<div class="panel panel-default custom-outer-panel-shadow-box">
+	<div class="panel-heading" style="background-image: url({% static 'testprograms/images/shattered.png' %});"><h3>Latest Entries:</h3></div>
+	<div class="panel-body">
+		<ul>
+			{% for object in latest_entry %}
+				<li><a href="{% url 'testprogram_entry_detail' category=object.category.name slug=object.slug %}">{{ object.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+{% extends 'testprograms/__base.html' %}
+{% load staticfiles %}
+{% block content %}
+	{% block header %}{% endblock %}
+	<!-- <header>
+		<div class="container">
+			{# block header #}{# endblock #}
+		</div>
+	</header> -->
+	<div class="container">
+		{% block main_col %}{% endblock %}
+	</div>
+	<footer>
+		<div class="container">
+			{% include "testprograms/_base_footer.html" %}
+		</div>
+	</footer>
+{% endblock %}

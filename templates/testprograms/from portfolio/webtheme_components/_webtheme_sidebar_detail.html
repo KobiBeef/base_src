@@ -1,0 +1,12 @@
+<h4>Need a Custom Build?</h4>
+<p>Test entry</p>
+<h4>Description:</h4>
+	<p>{{ webtheme.theme_desc_long }}</p>
+<h4>Features:</h4>
+<ul>
+	{% for item in webtheme.theme_features.all %}
+		<li>{{ item }}</li>
+	{% endfor %}
+</ul>
+<h4>Tags:</h4>
+<p>{{ webtheme.theme_tags.all|join:", " }}</p>

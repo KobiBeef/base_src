@@ -1,0 +1,309 @@
+{% load staticfiles %}
+{% load django_markdown %}
+{% load staticfiles %}
+<h2>Contents of Each Base Model</h2>
+<!-- 1ST ROW -->
+<!-- ################# ENTRY BASE MODEL ################# -->
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+			<div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4><a href="{% url 'entry_list' %}">Entry Model</a></h4></div>
+			<div class="panel-body">
+			  	<div class="well well-sm custom-inner-panel-margin">
+			  		Entry Title:
+			  	</div>
+		  		<ul>
+		  			{% for object in entry_list %}
+		  				<li>
+		  					<a href="{% url 'testprogram_entry_detail' category=object.category.name slug=object.slug %}">{{ object.title }}</a> | <small> {{ object.created|date:"d/m/Y" }} | Comments: {{ object.comments.count }}</small>
+		  				</li>
+		  			{% endfor %}
+		  		</ul>
+		  		<!-- ENTRY TITLE: -->
+			  	<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Entry category:</li>
+			  	</ul>
+		  		<ul>
+		  			{% for object in entry_list %}
+		  				<li>{{ object.category }}</li>
+		  			{% endfor %}
+		  		</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ################# ENTRY SUMMARY ################# -->
+	<div class="col-md-4">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});">
+		    <h4>Entry Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		Total Entry Post: <span class="badge">
+		    		{% with total=entry_list.count %}
+		    			{{ total }}
+		    		{% endwith %}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		Total Comments: <span class="badge">
+		    		{% with total=entry_comment.count %}
+		    			{{ total }}
+		    		{% endwith %}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<!-- 2ND ROW -->
+<!-- ################# HARDWARE BASE MODEL ################# -->
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		    <div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4><a href="{% url 'testprograms_hardwarepost_list' %}">Hardware Model</a></h4></div>
+		  	<div class="panel-body">
+				<!-- HARDWARE POST: -->
+		  		<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Hardware Post Tile:</li>
+			  	</ul>
+		  		<ul>
+		  			{% for object in hardware_post %}
+		  				<li>
+		  					<a href="{% url 'testprograms_hardwarepost_detail' category=object.hardware_name.hardware_category slug=object.slug %}">{{ object.hardware_post_title }}</a> | <small>{{ object.hardware_post_created|date:"d/m/y" }} | Comments: {{ object.comments.count }}</small>
+		  				</li>
+		  			{% endfor %}
+		  		</ul>
+		  		<!-- HARDWARE NAME: -->
+			  	<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Hardware Name:</li>
+			  	</ul>
+		  		<ul>
+		  			{% for object in hardware_post %}
+		  				<li>{{ object.hardware_name }}</li>
+		  			{% endfor %}
+		  		</ul>
+		  		<!-- HARDWARE BRAND: -->
+		  		<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Hardware Brand:</li>
+			  	</ul>
+		  		<ul>
+		  			{% for object in hardware_post %}
+		  				<li>{{ object.hardware_name.hardware_brand }}</li>
+		  			{% endfor %}
+		  		</ul>
+		  	</div>
+		</div>
+	</div>
+	<!-- ################# HARDWARE SUMMARY ################# -->
+	<div class="col-md-4">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+			<div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4>Hardware Item Summary</h4></div>
+		    <div class="panel-body">
+			  	<ul class="list-group">
+			    	<li class="list-group-item">
+			    		No. of Hardware Items: <span class="badge">
+			    		{% with total=hardware_item.count %}
+		    				{{ total }}
+		    			{% endwith %}</span>
+			    	</li>
+			    	<li class="list-group-item">
+			    		No. of Hardware Category: <span class="badge">
+			    		{% with total=hardware_category.count %}
+		    				{{ total }}
+		    			{% endwith %}
+			    	</span>
+			    	</li>
+			    	<li class="list-group-item">
+			    		No. of Hardware Post: <span class="badge">
+						{% with total=hardware_post.count %}
+		    				{{ total }}
+		    			{% endwith %}
+		    		</span>
+			    	</li>
+			  	</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 3RD ROW -->
+<!-- ################# INTERWEBS BASE MODEL ################# -->
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		    <div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4><a href="{% url 'testprograms_webtheme_list' %}">InterWebs Model</a></h4></div>
+			<div class="panel-body">
+		  		<!-- THEME NAME: -->
+			  	<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Theme Name:</li>
+			  	</ul>
+			  	<ul>
+			  		{% for object in interwebs_list %}
+			  			<li>
+			  				<a href="{% url 'testprograms_webtheme_detail' category=object.theme_category slug=object.slug %}">{{ object.theme_name }}</a> | <small>{{ object.theme_created|date:"d/m/y" }} | Category: {{ object.theme_category }}</small>
+			  			</li>
+			  		{% endfor %}
+			  	</ul>
+			  	<!-- THEME CATEGORY: -->
+			  	<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Theme Categories:</li>
+			  	</ul>
+			  	<ul>
+			  		{% for object in interwebs_list %}
+			  			<li>{{ object.theme_category }}</li>
+			  		{% endfor %}
+			  	</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ################# INTERWEBS SUMMARY ################# -->
+	<div class="col-md-4">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		  	<div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4>InterWebs Summary</h4></div>
+		  	<div class="panel-body">
+			  	<ul class="list-group">
+			    	<li class="list-group-item">
+			    		No. of Interweb Themes: <span class="badge">
+			    		{% with total=interwebs_list.count %}
+		    				{{ total }}
+		    			{% endwith %}</span>
+			    	</li>
+			    	<li class="list-group-item">
+			    		No. of Interweb Category: <span class="badge">
+			    		{% with total=interweb_category.count %}
+		    				{{ total }}
+		    			{% endwith %}</span>
+			    	</li>
+			  	</ul>
+		  	</div>
+		</div>
+	</div>
+</div>
+
+<!-- 4TH ROW -->
+<!-- ################# MULTIMEDIA BASE MODEL ################# -->
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		  	<div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4><a href="{% url 'testprograms_multimedia_list' %}">MultiMedia Model</a></h4></div>
+			<div class="panel-body">
+				<!-- MEDIA NAME -->
+				<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Media Name:</li>
+			  	</ul>
+			  	<ul>
+			  		{% for object in multimedia_list %}
+			  			<li>
+			  				<a href="{{ object.url }}">{{ object.media_name }}</a> | <small>{{ object.media_created|date:"d/m/y" }} | Category: {{ object.media_category }}</small>
+			  			</li>
+			  		{% endfor %}
+			  	</ul>
+			  	<!-- MEDIA CATEGORY -->
+			  	<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Media Category:</li>
+			  	</ul>
+			  	<ul>
+			  		{% for object in multimedia_list %}
+			  			<li>{{ object.media_category }}</li>
+			  		{% endfor %}
+			  	</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ################# MULTIMEDIA SUMMARY ################# -->
+	<div class="col-md-4">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4>Multimedia Summary</h4></a></div>
+		  <div class="panel-body">
+		    <ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Media Items: <span class="badge">
+		    		{% with total=multimedia_list.count %}
+		    			{{ total }}
+		    		{% endwith %}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Media Category: <span class="badge">
+		    		{% with total=multimedia_category.count %}
+		    			{{ total }}
+		    		{% endwith %}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<!-- 5TH ROW -->
+<!-- ################# PROGRAM BASE MODEL ################# -->
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		  	<div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4><a href="{% url 'programming_list' %}">Program Model</a></h4></div>
+			<div class="panel-body">
+				<!-- PROGRAM TUTORIALS -->
+				<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Program Tutorials:</li>
+			  	</ul>
+			  	<ul>
+			  		{% for object in program_list %}
+			  			<li>
+			  				<a href="{% url 'programning_detail' category=object.program_language.language  slug=object.slug %}">{{ object.tutorial_name }}</a> | <small>{{ object.tutorial_created|date:"d/m/y" }} | Topics: {{ object.topics.count }} </small>
+			  			</li>
+			  		{% endfor %}
+			  	</ul>
+			  	<!-- PROGRAM LANGUAGES -->
+			  	<ul class="list-group custom-inner-panel-margin">
+			  		<li class="list-group-item">Programming Languanges:</li>
+			  	</ul>
+			  	<ul>
+			  		{% for object in program_language %}
+			  			<li>{{ object.language }}</li>
+			  		{% endfor %}
+			  	</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ################# PROGRAM SUMMARY ################# -->
+	<div class="col-md-4">
+		<div class="panel panel-default custom-outer-panel-shadow-box">
+		  	<div class="panel-heading" style="background-image: url({% static 'testprograms/images/gplay.png' %});"><h4>Programming Summary</h4></div>
+			<div class="panel-body">
+			  	<ul class="list-group">
+			    	<li class="list-group-item">
+			    		No. of Programming Language: <span class="badge">
+			    		{% with total=program_language.count %}
+		    				{{ total }}
+		    			{% endwith %}</span>
+			    	</li>
+			    	<li class="list-group-item">
+			    		No. of Tutorials: <span class="badge">
+			    		{% with total=program_list.count %}
+		    				{{ total }}
+		    			{% endwith %}</span>
+			    	</li>
+			  	</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- <div class="col-md-2">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({# static 'testprograms/images/gplay.png' #});">
+		    <h4>Tags Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Overall Tags: <span class="badge">{# tag_list_count #}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Overall Category: <span class="badge">{# category_list_count #}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div> -->

@@ -1,0 +1,10 @@
+{% extends "testprograms/index.html" %}
+{% load django_markdown %}
+{% block body_block %}
+	<h2>Filtered by category</h2>
+	<!-- must display a list of "python/javascript" category tutorials -->
+	{% for object in by_category %}
+	<a href="{% url 'test_entry_detail' category=object.category.name slug=object.slug %}">
+		{{ object.title }}<br /></a>
+	{% endfor %}
+{% endblock %}

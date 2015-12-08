@@ -1,0 +1,15 @@
+{% load staticfiles %}
+{% load django_markdown %}
+{% for object in ProgramTutorial_header %}
+	<div class="page-header">
+		<h3><a href="{% url 'program_tutorial_detail' category=object.category slug=object.slug %}">{{ object.tutorial_name }}</a></h3>
+		<h6>{{ object.created }} | By: {{ object.user }} | Tags: {{ object.tags.all|join:", " }}</h6>
+	</div>
+	{{ object.description|linebreaks }}
+{% endfor %}
+{% for object in ProgramTutorialDetail_body %}
+	<div class="panel panel-default">
+		<div class="panel-heading" id="{{ object.topic }}">{{ object.topic }}</div>
+		<div class="panel-body">{{ object.body|markdown }}</div>
+	</div>
+{% endfor %}

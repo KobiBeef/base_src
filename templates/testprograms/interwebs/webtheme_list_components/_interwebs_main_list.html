@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<div class="row">
+  {% for object in webtheme_testprograms_list %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail custom-outer-panel-shadow-box" style="background-image: url({% static 'testprograms/images/premium-bg.png' %})">
+        <a href="{% url 'testprograms_webtheme_detail' category=object.theme_category slug=object.slug %}" >
+        <img src="/{{ object.theme_image }}" alt="...">
+        </a>
+        <div class="caption">
+          <h3 class="text-center">{{ object.theme_name }}</h3>
+          <p class="text-center">{{ object.theme_desc_short }}</p>
+          <p class="text-center"><a href="{% url 'testprograms_webtheme_detail' category=object.theme_category slug=object.slug %}" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Download</a></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

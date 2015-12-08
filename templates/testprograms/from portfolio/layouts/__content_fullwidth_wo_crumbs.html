@@ -1,0 +1,21 @@
+{% extends 'portfolio/__base.html' %}
+{% load staticfiles %}
+{% block content %}
+<header>
+	<div class="container">
+		{% block header %}{% endblock %}
+	</div>
+</header>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{% block main_col %}{% endblock %}
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		{% block footer %}{% endblock %}
+	</div>
+</footer>
+{% endblock %}

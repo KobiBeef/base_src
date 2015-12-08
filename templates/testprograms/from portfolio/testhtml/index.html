@@ -1,0 +1,57 @@
+{% extends 'portfolio/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block title %}Home-00{% endblock %}
+{% block body_block %}
+	<div class="col-md-9 main">
+		<div class="page-header">
+			<h3>Entries</h3>
+		</div>
+		{% for object in object_list %}
+			<div> <!-- div for Entry container -->
+				<div class="page-header"> <!-- div for Entry headings -->
+					<h3><a href="{% url "entry_detail" category=object.category slug=object.slug %}">{{ object.title }}</a> <small>By: {{ object.user }} | {{ object.created }} | Tags: {{ object.tags.all|join:", "}}</small></h3>
+				</div>
+				<div><!-- div for Entry body -->
+					{{ object.body|markdown }}
+				</div>
+			</div>
+		{% endfor %}
+		{% if is_paginated %}
+			<div class="container">
+				<ul class="pagination">
+					<li 
+						{% if not page_obj.has_previous %}
+							class="disabled"
+						{% endif %}><a 
+						{% if page_obj.has_previous %}
+							href="?page={{ page_obj.previous_page_number }}"
+						{% endif %}>Prev</a>
+					</li>
+					<li 
+						{% if not page_obj.has_next %}
+							class="disabled"
+						{% endif %}><a 
+						{% if page_obj.has_next %}
+							href="?page={{ page_obj.next_page_number }}"
+						{% endif %}>Next</a>
+					</li>
+				</ul>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}
+{% block side_block %}
+	<div class="col-md-3">
+		<div class="page-header">
+			<h3>Latest Entries</h3>
+		</div>
+		<ul>
+			<li>list 1</li>
+			<li>list 2</li>
+			<li>list 3</li>
+			<li>list 5</li>
+			<li>list 6</li>
+		</ul>
+	</div>
+{% endblock %}

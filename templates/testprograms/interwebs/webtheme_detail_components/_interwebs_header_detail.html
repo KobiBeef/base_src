@@ -1,0 +1,8 @@
+{% load staticfiles %}
+<header class="interwebs-list-header" style="background-image: url({% static 'testprograms/images/light-wool.png' %});">
+	<div class="container">
+		<h1>{{ webtheme.theme_name }}</h1>
+		<h6>Created: {{ webtheme.theme_created }} | Created by: {{ webtheme.theme_author }}</h6>
+		<p>{{ webtheme.theme_desc_long }}</p>
+	</div>
+</header>

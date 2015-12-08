@@ -1,0 +1,30 @@
+{% extends "library/base.html" %}
+{% block content %}
+	<h2>Publisher</h2>
+	<ul>
+		{% for publisher in Publisher_list %}
+			<li>{{ publisher.name }}</li>
+			<li>{{ publisher.address }}</li>
+			<li>{{ publisher.city }}</li>
+			<li>{{ publisher.state_province }}</li>
+			<li>{{ publisher.country }}</li>
+			<li>{{ publisher.website }}</li>
+			<!-- <li>{# publisher.name #}</li> -->
+		{% endfor %}
+	</ul>
+	<h2>Books</h2>
+	<ul>
+		{% for book in Book_list %}
+			<li>{{ book.title }}</li>
+			<li>{{ book.authors }}</li>
+			<li>{{ book.publisher }}</li>
+			<li>{{ book.publication_date }}</li>
+		{% endfor %}
+	</ul>
+	<h2>Author</h2>
+	<ul>
+		{% for author in Author_list %}
+			<li>{{ author.name }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

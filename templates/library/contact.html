@@ -1,0 +1,9 @@
+{% extends "library/base.html" %}
+{% block content %}
+	<h2>display contact list here</h2>
+	{% for object in Contact_ListView %}
+		{{ object.pk }}
+		<a href="{% url 'contact_detail_with_comments' pk=object.pk %}">{{ object.name }}</a>
+		<p>{{ object.message }}</p>
+	{% endfor %}
+{% endblock %}

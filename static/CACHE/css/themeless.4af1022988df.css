@@ -1,0 +1,86 @@
+.base-header {
+  display: block;
+  font-size: 24px;
+  line-height: 34.2857px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 30px;
+  position: relative;
+  text-align: left;
+}
+.base-header h1 {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+}
+.base-header p {
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+}
+.base-header h1 {
+  color: #ffffff;
+  font-family: ;
+  font-size: 30px;
+  font-weight: normal;
+}
+.base-header p {
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+}
+.index-header {
+  display: block;
+  font-size: 24px;
+  line-height: 34.2857px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 30px;
+  position: relative;
+  text-align: left;
+  background-color: #b84d45;
+}
+.index-header h1 {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+}
+.index-header p {
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+}
+.programming-header {
+  display: block;
+  font-size: 24px;
+  line-height: 34.2857px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 30px;
+  position: relative;
+  text-align: left;
+  background-color: #0d5940;
+}
+.programming-header h1 {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+}
+.programming-header p {
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+}

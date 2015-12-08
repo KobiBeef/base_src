@@ -1,0 +1,77 @@
+{% load staticfiles %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charst="UTF-8">
+		<!-- BOOTSTRAP css ONLINE -->
+		<!-- ================================================= -->
+		<!-- <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css"> -->
+		<!-- BOOTSTRAP css LOCAL-->
+		<!-- ================================================= -->
+		<link rel="stylesheet" type="text/css" href="{% static "portfolio/css/bootstrap-3.3.5.min.css" %}">
+		<link href="/feed/" rel="alternate" type="application/rss+xml" title="Portfolio Entry Feed">
+		<link rel="stylesheet" type="text/css" href="{% static "portfolio/css/sons-of-obsidian.css" %}">
+		<!-- CSS LESS compatibility -->
+		<!-- ================================================= -->
+		{% if debug %}
+			<!-- put less stypsheets here -->
+			<link rel="stylesheet" type="text/less" media="all" href="{% static "portfolio/css/less/themeless.less" %}">
+			<script src="{% static "portfolio/js/less/less-2.5.1.min.js" %}"></script>
+		{% else %}
+			{% compress css%}
+				<link rel="stylesheet" type="text/less" href="{% static "portfolio/css/less/themeless.less" %}">
+			{% endcompress %}
+		{% endif %}
+		<title>Prototype-00: {%block title%} Home/Main Page {% endblock %}</title>
+	</head>
+	<body onload="prettyPrint()">
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/portfolio/">Prototype 00</a>
+				</div><!-- /navbar-header -->
+				<div class="navbar-collapse collapse">
+		        	<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'about' %}">About</a></li>
+						<li><a href="{% url 'program_tutorial_list' %}">Programming</a></li>
+						<li><a href="">Interwebs</a></li>
+						<li><a href="">MultiMedia</a></li>
+						<li><a href="">Hardware</a></li>
+						<li><a href="">Contact</a></li>
+					</ul>
+				</div><!-- /navbar-collpase -->
+			</div><!-- /container -->
+		</nav><!-- /navbar -->
+		<header>
+		</header>
+		{% block header_block %}{% endblock %}
+		<div class="container">
+			<div class="row">
+				{% block body_block %}
+				{% endblock %}
+				{% block side_block %}
+				{% endblock %}
+			</div><!-- row -->
+		</div><!-- container-fluid -->
+		<footer>
+		</footer>
+		{% block footer_block %}{% endblock %}
+	<!-- BOOTSTRAP CORE JS ONLINE -->
+	<!-- ================================================= -->
+	<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+	<!-- // <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
+	<!-- BOOTSTRAP JS LOCAL -->
+	<!-- ================================================= -->
+	<script src="{% static "portfolio/js/bootstrap-3.3.5.min.js" %}"></script>
+	<script src="{% static "portfolio/js/jquery-1.11.3.min.js" %}"></script>
+	<script src="{% static "portfolio/js/prettify.js" %}"></script>
+	</body>
+</html>

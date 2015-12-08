@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!-- <div class="page-header">
+	<h3>Programming Languages Tutorial</h3>
+</div> -->
+<div class="panel panel-default custom-outer-panel-shadow-box">
+	<div class="panel-heading programming-list-heading-panel" style="background-image: url({% static 'testprograms/images/hexellence.png' %});"><h4>Python Tutorials:</h4></div>
+	<div class="panel-body">
+		{% for object in programtutorial_list %}
+			<ul>
+				{% if object.program_language.language.name == "python" %}
+					<li>
+						<a href="{% url 'programning_detail' category=object.program_language.language.name slug=object.slug %}">
+						<b>{{ object.tutorial_name }}:</b></a> <small><a href="{{ object.tutorial_url }}">{{ object.tutorial_url }}</a></small><br />
+						{{ object.tutorial_desc|linebreaks }}
+					</li>
+				{% endif %}
+			</ul>
+		{% endfor %}
+	</div>
+</div>
+<div class="panel panel-default custom-outer-panel-shadow-box">
+	<div class="panel-heading programming-list-heading-panel" style="background-image: url({% static 'testprograms/images/hexellence.png' %});"><h4>Javascript Tutorials:</h4></div>
+	<div class="panel-body">
+		{% for object in programtutorial_list %}
+			<ul>
+				{% if object.program_language.language.name == "javascript" %}
+					<li>
+						<a href="{% url 'programning_detail' category=object.program_language.language.name slug=object.slug %}">
+						<b>{{ object.tutorial_name }}</a>:</b> <small><a href="{{ object.tutorial_url }}">{{ object.tutorial_url }}</a></small><br />
+						{{ object.tutorial_desc|linebreaks }}
+					</li>
+				{% endif %}
+			</ul>
+		{% endfor %}
+	</div>
+</div>

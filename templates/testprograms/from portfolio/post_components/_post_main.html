@@ -1,0 +1,41 @@
+{% load django_markdown %}
+<div class="entry_detail">
+	{% for object in entry_detail %}
+		<h2><a href="{% url "entry_detail" category=object.category slug=object.slug %}">{{ object.title }}</a></h2>
+		<p class="meta">
+			{{ object.created }}
+			Tagged under {{ object.tags.all|join:", " }}
+			<br />
+			Created by: {{ object.user }}
+		</p>
+		{{ object.body|markdown }}
+	{% endfor %}
+	<hr />
+</div>
+<h3>Comments</h3>
+<div class="comment_detail">
+	{% for object in comment_detail %}
+		Name: {{ object.name }} | Created: {{ object.created }}<br />
+		Message: <br />
+		{{ object.body|linebreaks }}
+		<hr />
+	{% endfor %}
+</div>
+<h3>Comment Form</h3>
+<form method="POST" action="">{% csrf_token %}
+	{% for field in form %}
+			{% if field.name == 'name' %}
+				<div class="form-group">
+					<label class="control-label" for="{{ field.name }}">{{ field.label }}</label>
+					<input class="form-control" id="{{ field.name }}" name="{{ field.name }}" type="text" placeholder="Field required">
+				</div>
+			{% endif %}
+		<div class="form-group">
+			{% if field.name == 'body' %}
+				<label for="{{ field.name }}">{{ field.label }}</label>
+				<textarea class="form-control" id="{{ field.name }}" name="{{ field.name }}" type="text" rows="5" placeholder="Field required"></textarea>
+			{% endif %}
+		</div>
+	{% endfor %}
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>

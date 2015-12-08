@@ -1,0 +1,26 @@
+{% extends 'portfolio/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block title %}Programs-00{% endblock %}
+{% block body_block %}
+	<div><!-- container for program_entry_detail -->
+		<!-- rename this to program_tutorial_detail.html -->
+		<h2><a href="{% url 'program_detail' category=object.category slug=object.slug %}">{{ object.title }}</a></h2>
+		<p class="meta">
+			{{ object.created }}
+			Tagged under {{ object.tags.all|join:", " }}
+			<br />
+			Created by: {{ object.user }}
+		</p>
+		{{ object.body|markdown }}
+	</div>
+{% endblock %}
+{% block side_block %}
+<div class="page-header">
+	<h3>Table of contents</h3>
+</div>
+<u/>
+	<li><a href="#RE">Regular Expression</a></li>
+	<!-- <li><a href="#{# object.topic #}">{# object.topic #}</a></li> -->
+</u/>
+{% endblock %}

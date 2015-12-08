@@ -1,0 +1,37 @@
+{% load staticfiles %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block meta_tags %}
+			<meta charst="UTF-8">
+		{% endblock %}
+		{% block stylesheets %}
+			<link rel="stylesheet" type="text/css" href="{% static "portfolio/css/bootstrap-3.3.5.min.css" %}">
+			<link href="/feed/" rel="alternate" type="application/rss+xml" title="Portfolio Entry Feed">
+			<link rel="stylesheet" type="text/css" href="{% static "portfolio/css/sons-of-obsidian.css" %}">
+			{% if debug %}
+				<!-- put less stypsheets here -->
+				<link rel="stylesheet" type="text/less" media="all" href="{% static "portfolio/css/less/themeless.less" %}">
+				<script src="{% static "portfolio/js/less/less-2.5.1.min.js" %}"></script>
+			{% else %}
+				{% compress css %}
+					<link rel="stylesheet" type="text/less" href="{% static "portfolio/css/less/themeless.less" %}">
+				{% endcompress %}
+			{% endif %}
+		{% endblock %}
+		{% block extra_head %}{% endblock %}
+		<title>Prototype-00: {%block title%} Home/Main Page {% endblock %}</title>
+	</head>
+	<body onload="prettyPrint()">
+		{% include "portfolio/new_index/_navbar_inverse_static_top.html" %}
+		{% block content %}{% endblock %}
+		{% block javascript %}
+			<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+			<script src="{% static "portfolio/js/bootstrap-3.3.5.min.js" %}"></script>
+			<script src="{% static "portfolio/js/jquery-1.11.3.min.js" %}"></script>
+			<script src="{% static "portfolio/js/prettify.js" %}"></script>
+		{% endblock %}
+		{% block extra_javascript %}{% endblock %}
+	</body>
+</html>

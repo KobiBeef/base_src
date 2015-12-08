@@ -1,0 +1,10 @@
+{% load staticfiles %}
+<header class="programming-detail-header" style="background-image: url({% static 'testprograms/images/hexellence.png' %});">
+	{% for object in ProgramTutorial_header %}
+		<div class="container">
+			<h1><a href="{% url 'programning_detail' category=object.program_language.language.name slug=object.slug %}">{{ object.tutorial_name }}</a></h1>
+			<h6>Created: {{ object.tutorial_created }} | Tags: {{ object.tutorial_tags.all|join:", " }}</h6>
+			<p>{{ object.tutorial_desc|linebreaks }}</p>
+		</div>
+	{% endfor %}
+</header>

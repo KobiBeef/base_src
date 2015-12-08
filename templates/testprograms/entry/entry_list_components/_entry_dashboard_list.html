@@ -1,0 +1,237 @@
+{% load staticfiles %}
+<h2>Contents of Each Base Model</h2>
+<!-- 1ST ROW -->
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Entry Model</h4>
+		  </div>
+		  <div class="panel-body">
+		  	Hardware Name:
+		  		<ul>
+		  			{% for objects in hardware_list %}
+		  				<li>{{ objects.hardware_name }}</li>
+		  			{% endfor %}
+		  		</ul>
+		  	Hardware Brand:
+		  		<ul>
+		  			{% for objects in hardware_list %}
+		  				<li>{{ objects.hardware_brand }}</li>
+		  			{% endfor %}
+		  		</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Entry Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		Entry Post: <span class="badge">{{ entry_list_count }}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		Comments: <span class="badge">{{ entry_comment_count }}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Hardware Model</h4>
+		  </div>
+		  <div class="panel-body">
+		  	Hardware Name:
+		  		<ul>
+		  			{% for objects in hardware_list %}
+		  				<li>{{ objects.hardware_name }}</li>
+		  			{% endfor %}
+		  		</ul>
+		  	Hardware Brand:
+		  		<ul>
+		  			{% for objects in hardware_list %}
+		  				<li>{{ objects.hardware_brand }}</li>
+		  			{% endfor %}
+		  		</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Hardware Item Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Hardware Items: <span class="badge">{{ hardware__item_list_count }}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Hardware Category: <span class="badge">{{ hardware_category_count }}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>InterWebs Model</h4>
+		  </div>
+		  <div class="panel-body">
+		  		Theme Name:
+			  	<ul>
+			  		{% for objects in interwebs_list %}
+			  			<li>{{ objects.theme_name }}</li>
+			  		{% endfor %}
+			  	</ul>
+			  	Theme Categories:
+			  	<ul>
+			  		{% for objects in interwebs_list %}
+			  			<li>{{ objects.theme_category }}</li>
+			  		{% endfor %}
+			  	</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>InterWebs Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Hardware Items: <span class="badge">{{ hardware__item_list_count }}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Hardware Category: <span class="badge">{{ hardware_category_count }}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>MultiMedia Model</h4>
+		  </div>
+		  <div class="panel-body">
+		  	Media Name:
+		  	<ul>
+		  		{% for objects in multimedia_list %}
+		  			<li>{{ objects.media_name }}</li>
+		  		{% endfor %}
+		  	</ul>
+		  	Media Category:
+		  	<ul>
+		  		{% for objects in multimedia_list %}
+		  			<li>{{ objects.media_category }}</li>
+		  		{% endfor %}
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Multimedia Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		    <ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Media Items: <span class="badge">{{ multimedia_item_list_count }}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Media Category: <span class="badge">{{ multimedia_category_count }}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Program Model</h4>
+		  </div>
+		  <div class="panel-body">
+		  	Program Tutorials:
+		  	<ul>
+		  		{% for objects in program_list %}
+		  			<li>{{ objects.tutorial_name }}</li>
+		  		{% endfor %}
+		  	</ul>
+		  	Programming Languanges:
+		  	<ul>
+		  		{% for objects in program_language_list %}
+		  			<li>{{ objects.language }}</li>
+		  		{% endfor %}
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		  	<h4>Programming Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Programming Language: <span class="badge">{{ program_language_count }}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Tutorials: <span class="badge">{{ program_tutorial_list_count }}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+
+<h2>Overview:</h2>
+<!-- 1ST OVERVIEW ROW -->
+<!-- BRUTE FORCING ALL PANELS -->
+<div class="row">
+</div>
+
+<!-- 2ND OVERVIEW ROW -->
+<!-- BRUTE FORCING ALL PANELS -->
+<div class="row">
+	<div class="col-md-2">
+		<div class="panel panel-default">
+		  <div class="panel-heading" style="background-image: url({% static 'testprograms/images/bg.png' %});">
+		    <h4>Tags Summary</h4>
+		  </div>
+		  <div class="panel-body">
+		  	<ul class="list-group">
+		    	<li class="list-group-item">
+		    		No. of Overall Tags: <span class="badge">{{ tag_list_count }}</span>
+		    	</li>
+		    	<li class="list-group-item">
+		    		No. of Overall Category: <span class="badge">{{ category_list_count }}</span>
+		    	</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+</div>

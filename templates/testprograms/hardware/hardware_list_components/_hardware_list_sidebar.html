@@ -1,0 +1,11 @@
+{% load staticfiles %}
+<div class="panel panel-default custom-outer-panel-shadow-box">
+	<div class="panel-heading" ><h3>Latest Hardware:</h3></div>
+	<div class="panel-body">
+		<ul>
+			{% for object in latest_hardware_post %}
+				<li><a href="{% url 'testprograms_hardwarepost_detail' category=object.hardware_name.hardware_category slug=object.slug %}">{{ object.hardware_post_title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+{% load staticfiles %}
+<header class="entry-list-header" style="background-image: url({% static 'testprograms/images/shattered.png' %});">
+	{% for object in entryDetailView_header %}
+		<div class="container">
+			<h1><a href="{% url 'testprogram_entry_detail' category=object.category.name slug=object.slug %}">{{ object.title }}</a></h1>
+			<h6>Created: {{ object.created }}</h6>
+			<h6>Created by: {{ object.user }}</h6>
+		</div>
+	{% endfor %}
+</header>

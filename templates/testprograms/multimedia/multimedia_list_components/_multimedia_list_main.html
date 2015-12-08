@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<div class="row">
+  {% for object in multimedia_testprograms_list %}
+    <div class="col-xs-6 col-md-3">
+      <div class="thumbnail custom-outer-panel-shadow-box" style="background-image: url({% static 'testprograms/images/premium-bg.png' %})">
+        <a data-flickr-embed="{{ object.embed_condition }}" href="{{ object.embed_location }}" title="{{ object.embed_title }}"><img src="{{ object.embed_img_src }}" width="{{ object.embed_img_width }}" height="{{ object.embed_img_height }}" alt="{{ object.embed_img_alt }}"></a>
+        <div class="caption">
+          <h3 class="text-center">{{ object.media_name }}</h3>
+          <p class="text-center">{{ object.media_desc }}</p>
+          <p class="text-center">{{ object.api.api_title }}</p>
+          <p class="text-center">{{ object.api.api_pic_count}} images</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

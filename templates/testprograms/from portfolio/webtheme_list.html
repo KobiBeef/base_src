@@ -1,0 +1,14 @@
+{% extends 'portfolio/layouts/__content_fullwidth_w_crumbs.html' %}
+{% load staticfiles %}
+{% block header %}
+	{% include "portfolio/new_index/_index_header.html" %}
+{% endblock %}
+{% block breadcrumb %}
+	{% include "portfolio/webtheme_components/_webtheme_breadcrumb_list.html" %}
+{% endblock %}
+{% block main_col %}
+	{% include "portfolio/webtheme_components/_webtheme_thumbnails.html" %}
+{% endblock %}
+{% block footer %}
+	{% include "portfolio/new_index/_index_footer.html" %}
+{% endblock %}
