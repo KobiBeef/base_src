@@ -21,12 +21,12 @@ def add_item(api_title, api_pic_count, api_view_count):
 	flickr_api = MultiMediaApi.objects.get_or_create(api_title=api_title, api_pic_count=api_pic_count, api_view_count=api_view_count)
 	return flickr_api
 
-# def testdef(test):
-# 	return test
-
 if __name__ == '__main__':
 	# print ("Starting population script api testprograms..")
 	print ("selecting objects..")
 	os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'base.settings')
 	from testprograms.models import MultiMediaApi
 	api_populate()
+
+
+# test comment for verification
